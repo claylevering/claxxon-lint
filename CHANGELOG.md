@@ -1,0 +1,31 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [1.0.0] - 2025-11-11
+
+### Added
+- Initial release of @claxxon-lint/eslint-config
+- Support for ESLint flat config format (ESLint 8.57+)
+- Vue.js configurations:
+  - `vue`: Custom Vue rules for flexible configuration
+  - `vue-recommended`: All recommended Vue rules from eslint-plugin-vue
+- Node.js configurations:
+  - `node`: Custom Node rules for flexible configuration
+  - `node-recommended`: All recommended Node rules from eslint-plugin-n
+- TypeScript configurations:
+  - `typescript`: Custom TypeScript rules for flexible configuration
+  - `typescript-recommended`: All recommended TypeScript rules from @typescript-eslint
+- Multiple import methods:
+  - Default import with property access
+  - Named imports
+  - Direct path imports
+- Comprehensive documentation:
+  - README.md with quick start guide
+  - USAGE.md with detailed examples
+  - Example configurations and files
+- Full test suite with 15+ unit tests
+- Error handling and validation for plugin configurations
