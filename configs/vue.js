@@ -7,7 +7,11 @@ import pluginVue from 'eslint-plugin-vue';
 
 // Get the parser from the flat/recommended config
 const vueParser = pluginVue.configs['flat/recommended']
-  .find(config => config.languageOptions?.parser)?.languageOptions.parser;
+  ?.find(config => config.languageOptions?.parser)?.languageOptions?.parser;
+
+if (!vueParser) {
+  throw new Error('Unable to find Vue parser in eslint-plugin-vue. This may be due to an incompatible version of eslint-plugin-vue.');
+}
 
 export default {
   name: '@claxxon-lint/vue',
