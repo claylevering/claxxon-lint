@@ -1,0 +1,42 @@
+{
+  "name": "@claxxon-lint/eslint-config",
+  "version": "1.0.0",
+  "description": "A set of ESLint configurations supporting flat config format with Vue, Node, and TypeScript rules",
+  "main": "index.js",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./vue": "./configs/vue.js",
+    "./vue-recommended": "./configs/vue-recommended.js",
+    "./node": "./configs/node.js",
+    "./node-recommended": "./configs/node-recommended.js",
+    "./typescript": "./configs/typescript.js",
+    "./typescript-recommended": "./configs/typescript-recommended.js"
+  },
+  "scripts": {
+    "test": "node --test",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "flat-config",
+    "vue",
+    "node",
+    "typescript"
+  ],
+  "author": "Clay Levering",
+  "license": "MIT",
+  "peerDependencies": {
+    "eslint": ">=8.57.0"
+  },
+  "dependencies": {
+    "eslint-plugin-vue": "^9.28.0",
+    "eslint-plugin-n": "^17.10.3",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  }
+}
