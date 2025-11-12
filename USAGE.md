@@ -85,6 +85,42 @@ export default [
 - **node-recommended**: All recommended Node rules from eslint-plugin-n
 - **typescript**: Custom TypeScript rules
 - **typescript-recommended**: All recommended TypeScript rules from @typescript-eslint
+- **vue-with-custom**: Vue rules with custom claxxon-lint rules
+- **custom-rules**: Custom ESLint rules plugin
+
+## Using Custom Rules
+
+The `vue-with-custom` configuration includes custom claxxon-lint rules:
+
+```javascript
+import { vueWithCustom } from '@claxxon-lint/eslint-config';
+
+export default [
+  vueWithCustom
+];
+```
+
+Or use custom rules in your own configuration:
+
+```javascript
+import { customRules } from '@claxxon-lint/eslint-config';
+
+export default [
+  {
+    files: ['**/*.vue'],
+    plugins: {
+      'claxxon-lint': customRules
+    },
+    rules: {
+      'claxxon-lint/vue-component-name-the': 'warn'
+    }
+  }
+];
+```
+
+### Available Custom Rules
+
+- **claxxon-lint/vue-component-name-the**: Requires all Vue component names to contain the word "The"
 
 ## Customizing Rules
 

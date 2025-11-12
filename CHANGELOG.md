@@ -18,6 +18,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - PUBLISHING.md with detailed publishing guide
   - Updated README.md with GitHub Packages installation instructions
   - Updated CONTRIBUTING.md with publishing reference
+- Custom ESLint rules
+  - New `custom-rules/` directory with custom rule implementations
+  - `vue-component-name-the` rule requiring "The" in component names
+  - `vue-with-custom` configuration that includes custom rules
+  - Custom rules plugin export for flexible usage
+  - Documentation in `custom-rules/README.md`
+- Repository self-linting
+  - `eslint.config.js` to lint the repository itself
+  - Updated example Vue component to comply with custom rules
 
 ## [1.0.0] - 2025-11-11
 

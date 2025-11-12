@@ -15,10 +15,12 @@
     ".": "./index.js",
     "./vue": "./configs/vue.js",
     "./vue-recommended": "./configs/vue-recommended.js",
+    "./vue-with-custom": "./configs/vue-with-custom.js",
     "./node": "./configs/node.js",
     "./node-recommended": "./configs/node-recommended.js",
     "./typescript": "./configs/typescript.js",
-    "./typescript-recommended": "./configs/typescript-recommended.js"
+    "./typescript-recommended": "./configs/typescript-recommended.js",
+    "./custom-rules": "./custom-rules/index.js"
   },
   "scripts": {
     "test": "node --test",

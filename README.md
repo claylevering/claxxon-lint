@@ -63,10 +63,31 @@ export default [
 |--------|-------------|
 | `vue` | Custom Vue rules for flexible configuration |
 | `vue-recommended` | All recommended Vue rules from eslint-plugin-vue |
+| `vue-with-custom` | Vue rules with custom claxxon-lint rules |
 | `node` | Custom Node rules for flexible configuration |
 | `node-recommended` | All recommended Node rules from eslint-plugin-n |
 | `typescript` | Custom TypeScript rules for flexible configuration |
 | `typescript-recommended` | All recommended TypeScript rules from @typescript-eslint |
+| `custom-rules` | Custom ESLint rules plugin |
+
+## Custom Rules
+
+### `claxxon-lint/vue-component-name-the`
+
+Requires all Vue component names to contain the word "The". This is a custom rule that demonstrates how to create project-specific linting rules.
+
+**Example:**
+```javascript
+// ✗ BAD - component name doesn't contain "The"
+export default {
+  name: 'HelloWorld'
+}
+
+// ✓ GOOD - component name contains "The"
+export default {
+  name: 'TheHelloWorld'
+}
+```
 
 ## Usage
 
