@@ -13,6 +13,32 @@ A set of linting rules I like and can't find elsewhere, with support for ESLint 
 
 ## Installation
 
+This package is published to GitHub Packages. To install it, you need to configure npm to use GitHub Packages for the `@claxxon-lint` scope.
+
+### Step 1: Configure npm
+
+Create or update your `.npmrc` file in your project root:
+
+```
+@claxxon-lint:registry=https://npm.pkg.github.com
+```
+
+### Step 2: Authenticate with GitHub Packages
+
+You'll need a GitHub Personal Access Token with `read:packages` permission. Set it in your `.npmrc`:
+
+```
+//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
+```
+
+Or set it as an environment variable:
+
+```bash
+export NODE_AUTH_TOKEN=YOUR_GITHUB_TOKEN
+```
+
+### Step 3: Install the package
+
 ```bash
 npm install --save-dev @claxxon-lint/eslint-config eslint
 ```

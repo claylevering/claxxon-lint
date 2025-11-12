@@ -121,6 +121,15 @@ When adding features, update:
 5. Update documentation
 6. Submit a pull request
 
+## Publishing
+
+This package is published to GitHub Packages. For detailed information on how to publish new versions, see [PUBLISHING.md](./PUBLISHING.md).
+
+**Quick reference:**
+- Automatic publishing via GitHub Releases (recommended)
+- Manual publishing with `npm run publish:github`
+- Always update version with `npm version patch|minor|major`
+
 ## Questions?
 
 Feel free to open an issue for:

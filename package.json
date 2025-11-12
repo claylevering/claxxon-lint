@@ -4,6 +4,13 @@
   "description": "A set of ESLint configurations supporting flat config format with Vue, Node, and TypeScript rules",
   "main": "index.js",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/claylevering/claxxon-lint.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "exports": {
     ".": "./index.js",
     "./vue": "./configs/vue.js",
@@ -15,7 +22,9 @@
   },
   "scripts": {
     "test": "node --test",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "prepublishOnly": "npm test",
+    "publish:github": "npm publish"
   },
   "keywords": [
     "eslint",

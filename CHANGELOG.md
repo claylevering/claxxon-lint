@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- GitHub Packages publishing configuration
+  - `.npmrc` file for package registry configuration
+  - `publishConfig` in package.json pointing to GitHub Packages
+  - GitHub Actions workflow for automatic publishing on releases
+  - `publish:github` npm script for manual publishing
+  - `prepublishOnly` script to run tests before publishing
+- Publishing documentation:
+  - PUBLISHING.md with detailed publishing guide
+  - Updated README.md with GitHub Packages installation instructions
+  - Updated CONTRIBUTING.md with publishing reference
+
 ## [1.0.0] - 2025-11-11
 
 ### Added
