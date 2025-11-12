@@ -4,12 +4,17 @@ A set of linting rules I like and can't find elsewhere, with support for ESLint 
 
 ## Features
 
-- 🚀 **ESLint Flat Config Support** - Built for the modern ESLint configuration format
+- 🚀 **ESLint 9+ Flat Config Support** - Built for the modern ESLint configuration format
 - 🎨 **Vue Support** - Individual and recommended rule packages for Vue.js
 - 📦 **Node Support** - Individual and recommended rule packages for Node.js
 - 🔷 **TypeScript Support** - Individual and recommended rule packages for TypeScript
 - 🔧 **Flexible** - Use individual rules or complete recommended packages
 - 🎯 **Modular** - Import only what you need
+
+## Requirements
+
+- ESLint 9.0.0 or higher
+- Node.js 18.0.0 or higher
 
 ## Installation
 

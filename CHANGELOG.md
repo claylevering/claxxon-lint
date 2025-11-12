@@ -28,11 +28,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `eslint.config.js` to lint the repository itself
   - Updated example Vue component to comply with custom rules
 
+### Changed
+- **BREAKING**: Upgraded to ESLint 9.15.0 for proper flat config support
+- Updated `@typescript-eslint/eslint-plugin` and `@typescript-eslint/parser` to v8 for ESLint 9 compatibility
+- Minimum required ESLint version is now 9.0.0 (was 8.57.0)
+
 ## [1.0.0] - 2025-11-11
 
 ### Added
 - Initial release of @claxxon-lint/eslint-config
-- Support for ESLint flat config format (ESLint 8.57+)
+- Support for ESLint flat config format (ESLint 9.0.0+)
 - Vue.js configurations:
   - `vue`: Custom Vue rules for flexible configuration
   - `vue-recommended`: All recommended Vue rules from eslint-plugin-vue

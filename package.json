@@ -39,15 +39,15 @@
   "author": "Clay Levering",
   "license": "MIT",
   "peerDependencies": {
-    "eslint": ">=8.57.0"
+    "eslint": ">=9.0.0"
   },
   "dependencies": {
     "eslint-plugin-vue": "^9.28.0",
     "eslint-plugin-n": "^17.10.3",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0"
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.57.0"
+    "eslint": "^9.15.0"
   }
 }
