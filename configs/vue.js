@@ -3,62 +3,13 @@
  * All recommended Vue rules for flat config format
  */
 
-import globals from 'globals';
+import { vueCoreConfig } from './vue-standalone.js';
 
 import { defineConfig } from 'eslint/config';
 import vue from 'eslint-plugin-vue';
-import vueParser from 'vue-eslint-parser';
 
-import claxxonCustom from '../custom-rules/index.js';
+vueCoreConfig.name = '@claxxon-lint/vue';
+vueCoreConfig.plugins.vue = vue;
+vueCoreConfig.extends = ['vue/flat/recommended'];
 
-const config = {
-    name: '@claxxon-lint/vue',
-    files: ['**/*.vue'],
-
-    languageOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-        globals: {
-            ...globals.browser
-        },
-
-        parserOptions: {
-            parser: vueParser
-        }
-    },
-
-    plugins: {
-        vue,
-        'claxxon-vue': claxxonCustom
-    },
-
-    extends: ['vue/flat/recommended'],
-
-    rules: {
-        // Customized Vue rules from Claxxon
-        'vue/html-indent': ['error', 4],
-        'vue/script-indent': ['error', 4, { baseIndent: 0 }],
-        'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
-        'vue/multi-word-component-names': 'off',
-        'vue/component-name-in-template-casing': ['error', 'PascalCase', { registeredComponentsOnly: false }],
-        'vue/component-definition-name-casing': ['error', 'PascalCase'],
-        'vue/no-unused-vars': ['error', { ignorePattern: '^_' }],
-        'vue/no-unused-properties': ['error'],
-
-        // Custom Pinia store rules
-        'claxxon-vue/pinia-store-pattern': 'error',
-        'claxxon-vue/pinia-store-top-level': 'error',
-
-        // Prevent importing Vue globals
-        'claxxon-vue/no-vue-global-imports': 'error',
-
-        // Disallow switch statements
-        'claxxon-vue/no-switch-statements': 'error'
-    },
-
-    ignores: ['node_modules/**', 'dist/**', 'coverage/**', '.git/**']
-};
-
-debugger;
-
-export default defineConfig([config]);
+export default defineConfig([vueCoreConfig]);

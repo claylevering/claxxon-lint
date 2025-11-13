@@ -4,11 +4,14 @@
  * ESLint flat config with support for Vue, Node, and TypeScript
  */
 
-import vueRecommended from './configs/vue.js';
-import nodeRecommended from './configs/node.js';
-import typescriptRecommended from './configs/typescript.js';
-import vueTsRecommended from './configs/vue-ts.js';
-import customRules from './custom-rules/index.js';
+import vueConfig from './configs/vue.js';
+import vueStandaloneConfig from './configs/vue-standalone.js';
+import vueTsConfig from './configs/vue-ts.js';
+import vueTsStandaloneConfig from './configs/vue-ts-standalone.js';
+
+import nodeConfig from './configs/node.js';
+import typescriptConfig from './configs/typescript.js';
+import claxxonRules from './custom-rules/index.js';
 
 const plugin = {
     // preferred location of name and version
@@ -17,13 +20,15 @@ const plugin = {
         namespace: 'claxxon'
     },
 
-    rules: customRules.rules,
+    rules: claxxonRules.rules,
 
     configs: {
-        vue: vueRecommended,
-        node: nodeRecommended,
-        typescript: typescriptRecommended,
-        'vue-ts': vueTsRecommended
+        vue: vueConfig,
+        'vue-standalone': vueStandaloneConfig,
+        node: nodeConfig,
+        typescript: typescriptConfig,
+        'vue-ts': vueTsConfig,
+        'vue-ts-standalone': vueTsStandaloneConfig
     }
 };
 
