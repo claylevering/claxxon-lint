@@ -1,0 +1,23 @@
+# Development files
+.github/
+.vscode/
+node_modules/
+.git/
+.gitignore
+.npmrc
+
+# Config files
+.prettierrc
+.prettierignore
+eslint.config.js
+package-lock.json
+
+# Logs and caches
+*.log
+.eslintcache
+.DS_Store
+
+# Test and coverage
+coverage/
+*.test.js
+*.spec.js

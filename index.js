@@ -14,7 +14,6 @@ const plugin = {
     // preferred location of name and version
     meta: {
         name: 'eslint-plugin-claxxon',
-        version: '1.2.3',
         namespace: 'claxxon'
     },
 
