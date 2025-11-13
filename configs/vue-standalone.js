@@ -12,7 +12,7 @@ import vueParser from 'vue-eslint-parser';
 
 import claxxonCustom from '../custom-rules/index.js';
 
-export const vueCoreConfig = {
+const vueStandaloneConfig = {
     name: '@claxxon-lint/vue-standalone',
     files: ['**/*.vue'],
 
@@ -57,4 +57,4 @@ export const vueCoreConfig = {
     ignores: ['node_modules/**', 'dist/**', 'coverage/**', '.git/**']
 };
 
-export default defineConfig([vueCoreConfig]);
+export default defineConfig([vueStandaloneConfig]);

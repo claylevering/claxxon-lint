@@ -4,11 +4,11 @@ import { defineConfig } from 'eslint/config';
 import tsEslint from 'typescript-eslint';
 
 import claxxonVueStandalone from './vue-standalone.js';
-import claxxonTsRecommended from './typescript.js';
+import claxxonTsConfig from './typescript.js';
 
-const tsConfig = defineConfig([
+const vueStandaloneConfig = defineConfig([
     // Apply Claxxon TS configuration
-    ...claxxonTsRecommended,
+    ...claxxonTsConfig,
 
     // Apply Claxxon Vue configuration
     ...claxxonVueStandalone,
@@ -37,4 +37,4 @@ const tsConfig = defineConfig([
     }
 ]);
 
-export default tsConfig;
+export default vueStandaloneConfig;

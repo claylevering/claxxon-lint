@@ -3,15 +3,15 @@ import globals from 'globals';
 import { defineConfig } from 'eslint/config';
 import tsEslint from 'typescript-eslint';
 
-import claxxonVueRecommended from './vue.js';
-import claxxonTsRecommended from './typescript.js';
+import claxxonVueConfig from './vue.js';
+import claxxonTsConfig from './typescript.js';
 
 const tsConfig = defineConfig([
     // Apply Claxxon TS configuration
-    ...claxxonTsRecommended,
+    ...claxxonTsConfig,
 
     // Apply Claxxon Vue configuration
-    ...claxxonVueRecommended,
+    ...claxxonVueConfig,
 
     {
         name: '@claxxon-lint/vue-typescript',
