@@ -1,4 +1,4 @@
-# Publishing and Using @claxxon-lint/eslint-config
+# Publishing and Using @claylevering/eslint-config
 
 This guide covers how to publish this package to npm and how to use it in your projects.
 
@@ -72,7 +72,7 @@ npm publish --access public
 After publishing, verify at:
 
 ```
-https://www.npmjs.com/package/@claxxon-lint/eslint-config
+https://www.npmjs.com/package/@claylevering/eslint-config
 ```
 
 ## Installing in Your Projects
@@ -82,7 +82,7 @@ https://www.npmjs.com/package/@claxxon-lint/eslint-config
 No special configuration needed - just install from npm:
 
 ```bash
-npm install --save-dev @claxxon-lint/eslint-config eslint
+npm install --save-dev @claylevering/eslint-config eslint
 ```
 
 ### Use in Your Project
@@ -90,7 +90,7 @@ npm install --save-dev @claxxon-lint/eslint-config eslint
 Create `eslint.config.js`:
 
 ```javascript
-import claxxonLint from '@claxxon-lint/eslint-config';
+import claxxonLint from '@claylevering/eslint-config';
 
 export default [
     ...claxxonLint.configs.node // or typescript, vue, vue-ts
@@ -117,12 +117,12 @@ No authentication needed for public npm packages.
 
 ## Troubleshooting
 
-### "404 Not Found - GET https://registry.npmjs.org/@claxxon-lint/eslint-config"
+### "404 Not Found - GET https://registry.npmjs.org/@claylevering/eslint-config"
 
 Package isn't published yet or name is incorrect. Verify:
 
-- Package exists at https://www.npmjs.com/package/@claxxon-lint/eslint-config
-- Package name is correct: `@claxxon-lint/eslint-config`
+- Package exists at https://www.npmjs.com/package/@claylevering/eslint-config
+- Package name is correct: `@claylevering/eslint-config`
 
 ### "403 Forbidden" when publishing
 

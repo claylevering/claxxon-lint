@@ -1,5 +1,5 @@
 /**
- * ESLint configuration for the @claxxon-lint/eslint-config repository
+ * ESLint configuration for the @claylevering/eslint-config repository
  */
 
 import { defineConfig } from 'eslint/config';

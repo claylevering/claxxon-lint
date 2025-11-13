@@ -1,4 +1,4 @@
-# @claxxon-lint/eslint-config
+# @claylevering/eslint-config
 
 A comprehensive ESLint plugin providing shareable configurations in ESLint flat config format (ESLint 9+) with support for Vue, Node.js, and TypeScript projects. Includes custom rules for Vue/Pinia development patterns.
 
@@ -18,7 +18,7 @@ A comprehensive ESLint plugin providing shareable configurations in ESLint flat 
 Install the package from npm:
 
 ```bash
-npm install --save-dev @claxxon-lint/eslint-config eslint
+npm install --save-dev @claylevering/eslint-config eslint
 ```
 
 ## Usage
@@ -28,7 +28,7 @@ npm install --save-dev @claxxon-lint/eslint-config eslint
 Create `eslint.config.js` in your project root:
 
 ```javascript
-import claxxonLint from '@claxxon-lint/eslint-config';
+import claxxonLint from '@claylevering/eslint-config';
 
 export default [
     ...claxxonLint.configs.node // For Node.js/JavaScript projects
@@ -38,7 +38,7 @@ export default [
 ### TypeScript Projects
 
 ```javascript
-import claxxonLint from '@claxxon-lint/eslint-config';
+import claxxonLint from '@claylevering/eslint-config';
 
 export default [
     ...claxxonLint.configs.typescript // Includes Node config + TypeScript rules
@@ -48,7 +48,7 @@ export default [
 ### Vue 3 Projects
 
 ```javascript
-import claxxonLint from '@claxxon-lint/eslint-config';
+import claxxonLint from '@claylevering/eslint-config';
 
 export default [
     ...claxxonLint.configs.vue // For Vue SFC files
@@ -58,7 +58,7 @@ export default [
 ### Vue 3 + TypeScript Projects
 
 ```javascript
-import claxxonLint from '@claxxon-lint/eslint-config';
+import claxxonLint from '@claylevering/eslint-config';
 
 export default [
     ...claxxonLint.configs['vue-ts'] // Combines Vue + TypeScript configs
@@ -68,7 +68,7 @@ export default [
 ### Mixed Projects
 
 ```javascript
-import claxxonLint from '@claxxon-lint/eslint-config';
+import claxxonLint from '@claylevering/eslint-config';
 
 export default [
     ...claxxonLint.configs.node, // For .js files
@@ -82,7 +82,7 @@ export default [
 All configurations include custom rules automatically. To use individual custom rules:
 
 ```javascript
-import claxxonLint from '@claxxon-lint/eslint-config';
+import claxxonLint from '@claylevering/eslint-config';
 
 export default [
     {

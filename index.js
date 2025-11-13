@@ -1,5 +1,5 @@
 /**
- * @claxxon-lint/eslint-config
+ * @claylevering/eslint-config
  *
  * ESLint flat config with support for Vue, Node, and TypeScript
  */

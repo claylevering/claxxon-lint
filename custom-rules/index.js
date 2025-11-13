@@ -1,5 +1,5 @@
 /**
- * Custom ESLint rules for @claxxon-lint
+ * Custom ESLint rules for @claylevering
  */
 
 import piniaStoreTopLevel from './pinia-store-top-level.js';

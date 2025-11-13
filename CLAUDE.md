@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**@claxxon-lint/eslint-config** is an ESLint plugin that provides shareable ESLint configurations in flat config format (ESLint 9+). It supports Vue, Node.js, and TypeScript projects with custom rules for Vue/Pinia development patterns.
+**@claylevering/eslint-config** is an ESLint plugin that provides shareable ESLint configurations in flat config format (ESLint 9+). It supports Vue, Node.js, and TypeScript projects with custom rules for Vue/Pinia development patterns.
 
 ## Development Commands
 
