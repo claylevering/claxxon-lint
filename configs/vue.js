@@ -29,11 +29,10 @@ export default defineConfig([
         },
 
         plugins: {
-            vue,
-            claxxonLint
+            vue
         },
 
-        extends: ['vue/flat/recommended'],
+        extends: ['vue/flat/recommended', claxxonLint],
 
         rules: {
             // Customized Vue rules from Claxxon
