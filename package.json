@@ -1,5 +1,5 @@
 {
-    "name": "@claxxon-lint/eslint-config",
+    "name": "claylevering/eslint-config",
     "author": "Clay Levering",
     "version": "1.0.0",
     "description": "A set of ESLint configurations supporting flat config format with Vue (and with TypeScript), Node, and TypeScript rules",
