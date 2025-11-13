@@ -1,53 +1,47 @@
 {
-  "name": "@claxxon-lint/eslint-config",
-  "version": "1.0.0",
-  "description": "A set of ESLint configurations supporting flat config format with Vue, Node, and TypeScript rules",
-  "main": "index.js",
-  "type": "module",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/claylevering/claxxon-lint.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
-  "exports": {
-    ".": "./index.js",
-    "./vue": "./configs/vue.js",
-    "./vue-recommended": "./configs/vue-recommended.js",
-    "./vue-with-custom": "./configs/vue-with-custom.js",
-    "./node": "./configs/node.js",
-    "./node-recommended": "./configs/node-recommended.js",
-    "./typescript": "./configs/typescript.js",
-    "./typescript-recommended": "./configs/typescript-recommended.js",
-    "./custom-rules": "./custom-rules/index.js"
-  },
-  "scripts": {
-    "test": "node --test",
-    "lint": "eslint .",
-    "prepublishOnly": "npm test",
-    "publish:github": "npm publish"
-  },
-  "keywords": [
-    "eslint",
-    "eslint-config",
-    "flat-config",
-    "vue",
-    "node",
-    "typescript"
-  ],
-  "author": "Clay Levering",
-  "license": "MIT",
-  "peerDependencies": {
-    "eslint": ">=9.0.0"
-  },
-  "dependencies": {
-    "eslint-plugin-vue": "^9.28.0",
-    "eslint-plugin-n": "^17.10.3",
-    "@typescript-eslint/eslint-plugin": "^8.0.0",
-    "@typescript-eslint/parser": "^8.0.0"
-  },
-  "devDependencies": {
-    "eslint": "^9.15.0"
-  }
+    "name": "@claxxon-lint/eslint-config",
+    "author": "Clay Levering",
+    "version": "1.0.0",
+    "description": "A set of ESLint configurations supporting flat config format with Vue (and with TypeScript), Node, and TypeScript rules",
+    "license": "MIT",
+    "main": "index.js",
+    "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/claylevering/claxxon-lint.git"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
+    },
+    "scripts": {
+        "eslint": "eslint .",
+        "eslint:fix": "eslint . --fix",
+        "prettier": "prettier .",
+        "prettier:fix": "prettier . --write",
+        "lint": "npm run eslint && npm run prettier",
+        "lint:fix": "npm run eslint:fix && npm run prettier:fix",
+        "publish:github": "npm publish"
+    },
+    "keywords": [
+        "eslint-config",
+        "eslint-plugin",
+        "eslint",
+        "eslintplugin",
+        "flat-config",
+        "node",
+        "typescript",
+        "vue"
+    ],
+    "devDependencies": {
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-vue": "^9.28.0",
+        "eslint": "^9.15.0",
+        "prettier": "3.6.2",
+        "typescript-eslint": "^8.46.4",
+        "typescript": "^5.9.3",
+        "vue-eslint-parser": "^10.2.0"
+    },
+    "peerDependencies": {
+        "eslint": ">=9.0.0"
+    }
 }

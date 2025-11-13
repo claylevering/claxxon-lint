@@ -1,45 +1,52 @@
 /**
- * Vue ESLint Configuration
- * Individual Vue rules for flat config format
+ * Vue Recommended ESLint Configuration
+ * All recommended Vue rules for flat config format
  */
 
-import pluginVue from 'eslint-plugin-vue';
+import globals from 'globals';
 
-// Get the parser from the flat/recommended config
-const vueParser = pluginVue.configs['flat/recommended']
-  ?.find(config => config.languageOptions?.parser)?.languageOptions?.parser;
+import { defineConfig } from 'eslint/config';
+import vue from 'eslint-plugin-vue';
+import vueParser from 'vue-eslint-parser';
 
-if (!vueParser) {
-  throw new Error('Unable to find Vue parser in eslint-plugin-vue. This may be due to an incompatible version of eslint-plugin-vue.');
-}
+import claxxonLint from '../custom-rules/index.js';
 
-export default {
-  name: '@claxxon-lint/vue',
-  files: ['**/*.vue'],
-  languageOptions: {
-    parser: vueParser,
-    parserOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module'
+export default defineConfig([
+    {
+        name: '@claxxon-lint/vue',
+        files: ['**/*.vue'],
+
+        languageOptions: {
+            ecmaVersion: 'latest',
+            sourceType: 'module',
+            globals: {
+                ...globals.browser
+            },
+
+            parserOptions: {
+                parser: vueParser
+            }
+        },
+
+        plugins: {
+            vue,
+            claxxonLint
+        },
+
+        extends: ['vue/flat/recommended'],
+
+        rules: {
+            // Customized Vue rules from Claxxon
+            'vue/html-indent': ['error', 4],
+            'vue/script-indent': ['error', 4, { baseIndent: 0 }],
+            'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
+            'vue/multi-word-component-names': 'off',
+            'vue/component-name-in-template-casing': ['error', 'PascalCase', { registeredComponentsOnly: false }],
+            'vue/component-definition-name-casing': ['error', 'PascalCase'],
+            'vue/no-unused-vars': ['error', { ignorePattern: '^_' }],
+            'vue/no-unused-properties': ['error']
+        },
+
+        ignores: ['node_modules/**', 'dist/**', 'coverage/**', '.git/**']
     }
-  },
-  plugins: {
-    vue: pluginVue
-  },
-  rules: {
-    // Custom Vue rules - these can be customized per project
-    'vue/multi-word-component-names': 'warn',
-    'vue/no-unused-vars': 'error',
-    'vue/no-unused-components': 'warn',
-    'vue/require-default-prop': 'warn',
-    'vue/require-prop-types': 'warn',
-    'vue/html-indent': ['warn', 2],
-    'vue/max-attributes-per-line': ['warn', {
-      singleline: 3,
-      multiline: 1
-    }],
-    'vue/component-name-in-template-casing': ['warn', 'PascalCase', {
-      registeredComponentsOnly: false
-    }]
-  }
-};
+]);

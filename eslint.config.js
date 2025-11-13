@@ -2,30 +2,30 @@
  * ESLint configuration for the @claxxon-lint/eslint-config repository
  */
 
-import nodeConfig from './configs/node.js';
-import vueWithCustom from './configs/vue-with-custom.js';
+import { defineConfig } from 'eslint/config';
 
-export default [
-  // Apply Node configuration to JavaScript files (with adjustments)
-  {
-    ...nodeConfig,
-    rules: {
-      ...nodeConfig.rules,
-      // Disable node version checks for test files since they use newer Node features
-      'n/no-unsupported-features/node-builtins': 'off'
-    }
-  },
-  
-  // Apply Vue configuration with custom rules to Vue files
-  vueWithCustom,
-  
-  // Ignore patterns
-  {
-    ignores: [
-      'node_modules/**',
-      'dist/**',
-      'coverage/**',
-      '.git/**'
-    ]
-  }
-];
+import claxxonLint from './index.js';
+import eslintConfigPrettier from 'eslint-config-prettier/flat';
+
+const claxxonNodeConfig = claxxonLint.configs['node'];
+const claxxonVueConfig = claxxonLint.configs['vue'];
+const claxxonVueTsConfig = claxxonLint.configs['vue-ts'];
+const claxxonTsRecommendedConfig = claxxonLint.configs['typescript'];
+
+const config = defineConfig([
+    // Apply Claxxon JavaScript / Node configuration to JS files
+    ...claxxonNodeConfig,
+
+    // Apply Claxxon Vue TypeScript configuration
+    ...claxxonVueConfig,
+
+    // Apply Claxxon Vue TypeScript configuration
+    ...claxxonVueTsConfig,
+
+    // Apply Claxxon TypeScript recommended configuration
+    ...claxxonTsRecommendedConfig,
+
+    eslintConfigPrettier // Prettier goes last to disable conflicting rules
+]);
+
+export default config;
