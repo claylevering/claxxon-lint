@@ -6,7 +6,7 @@ import tsEslint from 'typescript-eslint';
 import claxxonVueConfig from './vue.js';
 import claxxonTsConfig from './typescript.js';
 
-const tsConfig = defineConfig([
+const vueTsConfig = defineConfig([
     // Apply Claxxon TS configuration
     ...claxxonTsConfig,
 
@@ -37,4 +37,4 @@ const tsConfig = defineConfig([
     }
 ]);
 
-export default tsConfig;
+export default vueTsConfig;
