@@ -6,33 +6,19 @@ A comprehensive ESLint plugin providing shareable configurations in ESLint flat 
 
 - **ESLint 9+ Flat Config Format** - Modern array-based configuration
 - **Multiple Presets** - Choose configurations for your stack:
-  - Node.js/JavaScript
-  - TypeScript
-  - Vue 3
-  - Vue 3 + TypeScript
+    - Node.js/JavaScript
+    - TypeScript
+    - Vue 3
+    - Vue 3 + TypeScript
 - **Custom Rules** - Specialized rules for Vue and Pinia development
 - **Opinionated Defaults** - Battle-tested rules for production applications
 
 ## Installation
 
-### From GitHub Packages
-
-1. Create or update `.npmrc` in your project root:
-
-```
-@claxxon-lint:registry=https://npm.pkg.github.com
-```
-
-2. Install the package:
+Install the package from npm:
 
 ```bash
 npm install --save-dev @claxxon-lint/eslint-config eslint
-```
-
-**Note:** You'll need a GitHub Personal Access Token with `read:packages` permission. Set it in your environment or `.npmrc`:
-
-```
-//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
 ```
 
 ## Usage
@@ -45,7 +31,7 @@ Create `eslint.config.js` in your project root:
 import claxxonLint from '@claxxon-lint/eslint-config';
 
 export default [
-    ...claxxonLint.configs.node,  // For Node.js/JavaScript projects
+    ...claxxonLint.configs.node // For Node.js/JavaScript projects
 ];
 ```
 
@@ -55,7 +41,7 @@ export default [
 import claxxonLint from '@claxxon-lint/eslint-config';
 
 export default [
-    ...claxxonLint.configs.typescript,  // Includes Node config + TypeScript rules
+    ...claxxonLint.configs.typescript // Includes Node config + TypeScript rules
 ];
 ```
 
@@ -65,7 +51,7 @@ export default [
 import claxxonLint from '@claxxon-lint/eslint-config';
 
 export default [
-    ...claxxonLint.configs.vue,  // For Vue SFC files
+    ...claxxonLint.configs.vue // For Vue SFC files
 ];
 ```
 
@@ -75,7 +61,7 @@ export default [
 import claxxonLint from '@claxxon-lint/eslint-config';
 
 export default [
-    ...claxxonLint.configs['vue-ts'],  // Combines Vue + TypeScript configs
+    ...claxxonLint.configs['vue-ts'] // Combines Vue + TypeScript configs
 ];
 ```
 
@@ -85,9 +71,9 @@ export default [
 import claxxonLint from '@claxxon-lint/eslint-config';
 
 export default [
-    ...claxxonLint.configs.node,       // For .js files
+    ...claxxonLint.configs.node, // For .js files
     ...claxxonLint.configs.typescript, // For .ts files
-    ...claxxonLint.configs.vue,        // For .vue files
+    ...claxxonLint.configs.vue // For .vue files
 ];
 ```
 
@@ -107,7 +93,7 @@ export default [
             'claxxon/pinia-store-top-level': 'error',
             'claxxon/no-switch-statements': 'warn',
             'claxxon/no-vue-global-imports': 'error',
-            'claxxon/pinia-store-pattern': 'error',
+            'claxxon/pinia-store-pattern': 'error'
         }
     }
 ];
@@ -120,6 +106,7 @@ export default [
 Enforces Pinia store definitions only at top-level scope to prevent stores being created in loops or conditionals.
 
 **Valid:**
+
 ```javascript
 // Top-level in script setup
 const userStore = useUserStore();
@@ -129,10 +116,11 @@ export default {
     setup() {
         const userStore = useUserStore();
     }
-}
+};
 ```
 
 **Invalid:**
+
 ```javascript
 // Inside conditional
 if (condition) {
@@ -150,8 +138,11 @@ for (let i = 0; i < 10; i++) {
 Disallows switch statements to prevent fallthrough bugs and improve readability.
 
 **Invalid:**
+
 ```javascript
-switch (value) {  // ❌ Error
+switch (
+    value // ❌ Error
+) {
     case 1:
         return 'one';
     default:
@@ -160,6 +151,7 @@ switch (value) {  // ❌ Error
 ```
 
 **Valid:**
+
 ```javascript
 if (value === 1) {
     return 'one';
@@ -173,11 +165,13 @@ if (value === 1) {
 Prevents importing Vue 3 compiler macros that are automatically available in `<script setup>`.
 
 **Invalid:**
+
 ```javascript
 import { defineProps, defineEmits } from 'vue'; // ❌ Error
 ```
 
 **Valid:**
+
 ```javascript
 // Just use them directly in <script setup>
 const props = defineProps({...});
@@ -189,11 +183,13 @@ const emit = defineEmits(['update']);
 Enforces defining stores as variables before accessing properties.
 
 **Invalid:**
+
 ```javascript
 const userId = useUserStore().id; // ❌ Error
 ```
 
 **Valid:**
+
 ```javascript
 const userStore = useUserStore();
 const userId = userStore.id;
@@ -202,24 +198,28 @@ const userId = userStore.id;
 ## Configuration Details
 
 ### Node/JavaScript Config
+
 - 4-space indentation
 - Disallows `console` and `debugger` in production
 - Disallows `++` and `--` operators
 - Enforces `const` where possible
 
 ### TypeScript Config
+
 - Extends Node config
 - Allows `any` type (configurable)
 - Enhanced unused variable detection
 - TypeScript-ESLint recommended rules
 
 ### Vue Config
+
 - 4-space HTML and script indentation
 - Block order: script, template, style
 - PascalCase component names
 - Disables multi-word component name requirement
 
 ### Vue + TypeScript Config
+
 - Combines both TypeScript and Vue configurations
 - Applies TypeScript rules to `.ts` and `.vue` files
 

@@ -26,7 +26,8 @@
         "url": "https://github.com/claylevering/claxxon-lint.git"
     },
     "publishConfig": {
-        "registry": "https://npm.pkg.github.com"
+        "access": "public",
+        "registry": "https://registry.npmjs.org"
     },
     "scripts": {
         "eslint": "eslint .",
