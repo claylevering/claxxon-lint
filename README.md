@@ -1,6 +1,6 @@
 # @claylevering/claxxon-lint
 
-[![Publish Package to npm](https://github.com/claylevering/claxxon-lint/actions/workflows/publish.yml/badge.svg)](https://github.com/claylevering/claxxon-lint/actions/workflows/publish.yml)
+[![Publish Package to npm](https://github.com/claylevering/claxxon-lint/actions/workflows/publish.yaml/badge.svg)](https://github.com/claylevering/claxxon-lint/actions/workflows/publish.yaml)
 
 A comprehensive ESLint plugin providing shareable configurations in ESLint flat config format (ESLint 9+) with support for Vue, Node.js, and TypeScript projects. Includes custom rules for Vue/Pinia development patterns.
 
