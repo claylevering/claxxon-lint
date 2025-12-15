@@ -1,6 +1,7 @@
 export default {
     // Customized Node / JS rules from Claxxon
     'comma-dangle': 'off',
+    complexity: 'off',
     curly: ['error', 'all'],
     'func-style': 'off',
     'id-length': 'off',
