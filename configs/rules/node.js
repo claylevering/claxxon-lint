@@ -2,9 +2,12 @@ export default {
     // Customized Node / JS rules from Claxxon
     'comma-dangle': 'off',
     curly: ['error', 'all'],
+    'func-style': 'off',
+    'id-length': 'off',
     indent: ['error', 4, { SwitchCase: 1 }],
     'max-lines': 'off',
     'max-lines-per-function': 'off',
+    'max-statements': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-inline-comments': 'off',
