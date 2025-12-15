@@ -5,6 +5,7 @@ export default {
     indent: ['error', 4, { SwitchCase: 1 }],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-inline-comments': 'off',
     'no-param-reassign': [
         'error',
         { ignorePropertyModificationsFor: ['context', 'acc', 'curr', '_state', '_store', '_app'], ignorePropertyModificationsForRegex: ['^__'], props: true }
@@ -17,5 +18,8 @@ export default {
     'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' }],
     'no-use-before-define': 'error',
     'no-useless-escape': 'error',
-    'prefer-const': 'error'
+    'one-var': 'off',
+    'prefer-const': 'error',
+    'sort-imports': 'off',
+    'sort-keys': 'off'
 };

@@ -12,7 +12,7 @@ import nuxtConfig from './configs/nuxt.js';
 import claxxonRules from './custom-rules/index.js';
 
 const plugin = {
-    // preferred location of name and version
+    // Preferred location of name and version
     meta: {
         name: 'eslint-plugin-claxxon',
         namespace: 'claxxon'
