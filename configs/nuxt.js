@@ -63,7 +63,7 @@ export default defineConfig([
         },
 
         plugins: {
-            '@typescript-eslint': tsEslint.plugin,
+            js,
             'claxxon-vue': claxxonCustom
         },
 
