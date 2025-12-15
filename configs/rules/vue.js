@@ -1,6 +1,6 @@
 export default {
     // Disable some rules where Vue has the better version
-    'no-useless-assign': 'off',
+    'no-useless-assignment': 'off',
 
     // Customized Vue rules from Claxxon - assuming the Vue plugin is already loaded
     'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
