@@ -4,6 +4,40 @@
 
 A comprehensive ESLint plugin providing shareable configurations in ESLint flat config format (ESLint 9+) with support for Vue, Node.js, and TypeScript projects. Includes custom rules for Vue/Pinia development patterns.
 
+## TOC
+
+- [@claylevering/claxxon-lint](#clayleveringclaxxon-lint)
+  - [TOC](#toc)
+  - [Features](#features)
+  - [Installation](#installation)
+    - [Base Installation](#base-installation)
+    - [Framework-Specific Dependencies](#framework-specific-dependencies)
+      - [For Node.js/JavaScript Only](#for-nodejsjavascript-only)
+      - [For TypeScript Projects](#for-typescript-projects)
+      - [For Vue 3 Projects](#for-vue-3-projects)
+      - [For Nuxt Projects](#for-nuxt-projects)
+  - [Usage](#usage)
+    - [Node.js/JavaScript Projects](#nodejsjavascript-projects)
+    - [TypeScript Projects](#typescript-projects)
+    - [Vue 3 Projects](#vue-3-projects)
+  - [Framework configurations](#framework-configurations)
+    - [Nuxt projects](#nuxt-projects)
+      - [Nuxt Configuration](#nuxt-configuration)
+    - [Using Custom Rules](#using-custom-rules)
+    - [Prettier note](#prettier-note)
+      - [Vue w/Prettier](#vue-wprettier)
+      - [Nuxt + Prettier](#nuxt--prettier)
+  - [Custom Rule Definitions](#custom-rule-definitions)
+    - [`pinia-store-top-level`](#pinia-store-top-level)
+    - [`no-switch-statements`](#no-switch-statements)
+    - [`no-vue-global-imports`](#no-vue-global-imports)
+    - [`pinia-store-pattern`](#pinia-store-pattern)
+  - [Built-in Rule Configurations](#built-in-rule-configurations)
+    - [`padding-line-between-statements` (warn, auto-fixable)](#padding-line-between-statements-warn-auto-fixable)
+  - [Requirements](#requirements)
+  - [License](#license)
+  - [Repository](#repository)
+
 ## Features
 
 - **ESLint 9+ Flat Config Format** - Modern array-based configuration
@@ -223,12 +257,12 @@ Enforces Pinia store definitions only at top-level scope to prevent stores being
 
 ```javascript
 // Top-level in script setup
-const userStore = useUserStore();
+const myPiniaStore = useMyPiniaStore();
 
 // In setup function
 export default {
     setup() {
-        const userStore = useUserStore();
+        const myPiniaStore = useMyPiniaStore();
     }
 };
 ```
@@ -238,11 +272,11 @@ export default {
 ```javascript
 // Inside conditional
 if (condition) {
-    const userStore = useUserStore(); // ❌ Error
+    const myPiniaStore = useMyPiniaStore(); // ❌ Error
 }
 
 // Inside loop
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 10; i += 1) {
     const store = useMyStore(); // ❌ Error
 }
 ```
@@ -304,14 +338,54 @@ Enforces defining stores as variables before accessing properties.
 **Invalid:**
 
 ```javascript
-const userId = useUserStore().id; // ❌ Error
+const userId = useMyPiniaStore().id; // ❌ Error
 ```
 
 **Valid:**
 
 ```javascript
-const userStore = useUserStore();
+const myPiniaStore = useMyPiniaStore();
 const userId = userStore.id;
+```
+
+## Built-in Rule Configurations
+
+### `padding-line-between-statements` (warn, auto-fixable)
+
+Requires blank lines around block statements (if, for, while, switch, try) for improved readability. This prevents code from being too compressed and makes control flow easier to scan.
+
+**Before (triggers warning):**
+
+```javascript
+const onClickEvent = () => {
+    if (!myMovieRef.value) {
+        return;
+    }
+    if (myMovieRef.value?.title_id) {
+        const title = myMovieRef.value?.title;
+        if (title) {
+            modalStore.openModal({ ... });
+        }
+    }
+};
+```
+
+**After (auto-fixed):**
+
+```javascript
+const onClickEvent = () => {
+    if (!myMovieRef.value) {
+        return;
+    }
+
+    if (myMovieRef.value?.title_id) {
+        const title = myMovieRef.value?.title;
+
+        if (title) {
+            modalStore.openModal({ ... });
+        }
+    }
+};
 ```
 
 ## Requirements

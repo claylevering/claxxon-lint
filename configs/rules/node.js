@@ -27,6 +27,17 @@ export default {
     'no-use-before-define': 'error',
     'no-useless-escape': 'error',
     'one-var': 'off',
+
+    // Require blank lines around block statements for readability
+    // This improves code spacing and makes control flow easier to scan
+    'padding-line-between-statements': [
+        'warn',
+        // Require blank line after multiline block statements (if, for, while, switch, try, etc.)
+        { blankLine: 'always', prev: 'multiline-block-like', next: '*' },
+        // Require blank line before block statements when preceded by other statements
+        { blankLine: 'always', prev: '*', next: 'block-like' }
+    ],
+
     'prefer-const': 'error',
     'sort-imports': 'off',
     'sort-keys': 'off'
