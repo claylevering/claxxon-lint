@@ -21,15 +21,7 @@ export default {
     create(context) {
         // List of Vue compiler macros that should NOT be imported (auto-available in <script setup>)
         // Note: defineAsyncComponent and defineComponent are runtime functions, NOT compiler macros
-        const vueCompilerMacros = new Set([
-            'defineProps',
-            'defineEmits',
-            'defineExpose',
-            'defineOptions',
-            'defineSlots',
-            'defineModel',
-            'withDefaults'
-        ]);
+        const vueCompilerMacros = new Set(['defineProps', 'defineEmits', 'defineExpose', 'defineOptions', 'defineSlots', 'defineModel', 'withDefaults']);
 
         // Sources that commonly provide these globals
         const vueSources = new Set(['vue', '@vue/composition-api', '@vue/runtime-core', '@vue/reactivity']);

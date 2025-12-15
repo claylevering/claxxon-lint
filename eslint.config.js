@@ -7,7 +7,7 @@ import { defineConfig, globalIgnores } from 'eslint/config';
 import claxxonLint from './index.js';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
 
-const claxxonVueConfig = claxxonLint.configs['vue'];
+const claxxonVueConfig = claxxonLint.configs.vue;
 
 const config = defineConfig([
     ...claxxonVueConfig,

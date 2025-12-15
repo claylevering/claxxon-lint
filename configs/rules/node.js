@@ -6,6 +6,8 @@ export default {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-inline-comments': 'off',
+    'no-magic-numbers': 'off',
+    'no-ternary': 'off',
     'no-param-reassign': [
         'error',
         { ignorePropertyModificationsFor: ['context', 'acc', 'curr', '_state', '_store', '_app'], ignorePropertyModificationsForRegex: ['^__'], props: true }

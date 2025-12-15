@@ -19,8 +19,8 @@ import rootTypescriptRules from './rules/typescript.js';
  */
 export const claxxonTsConfig = [
     // Register Typescript rules from typescript-eslint
-    ...tsEslint.configs['recommended'],
-    ...tsEslint.configs['stylistic'],
+    ...tsEslint.configs.recommended,
+    ...tsEslint.configs.stylistic,
 
     /**
      * Apply JS/Node rules to TypeScript files using the TypeScript parser.
