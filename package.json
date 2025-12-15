@@ -1,7 +1,7 @@
 {
     "name": "@claylevering/eslint-config",
     "author": "Clay Levering",
-    "version": "2.0.13",
+    "version": "2.0.14",
     "description": "A set of ESLint configurations supporting flat config format with Vue (and with TypeScript), Node, and TypeScript rules",
     "license": "MIT",
     "main": "index.js",
