@@ -20,10 +20,7 @@ export default {
     },
 
     create(context) {
-        // Track store function calls that have been assigned to variables
-        const assignedStores = new Set();
-
-        const isInVueFile = context.getFilename().endsWith('.vue');
+        const isInVueFile = context.filename.endsWith('.vue');
 
         // Check if a function name looks like a Pinia store (starts with 'use' and ends with 'Store')
         function isPiniaStore(name) {
@@ -31,13 +28,6 @@ export default {
         }
 
         return {
-            // Track variable declarations that assign store calls
-            VariableDeclarator(node) {
-                if (node.init && node.init.type === 'CallExpression' && node.init.callee && node.init.callee.type === 'Identifier' && isPiniaStore(node.init.callee.name)) {
-                    assignedStores.add(node.init.callee.name);
-                }
-            },
-
             // Check for direct chaining on store calls
             MemberExpression(node) {
                 // Skip enforcement in non-Vue files (e.g., composables)

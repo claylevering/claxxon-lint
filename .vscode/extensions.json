@@ -1,13 +1,3 @@
 {
-    "recommendations": [
-        "christian-kohler.npm-intellisense",
-        "christian-kohler.path-intellisense",
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
-        "jasonnutter.search-node-modules",
-        "johnpapa.vscode-peacock",
-        "visualstudioexptteam.vscodeintellicode",
-        "Vue.volar",
-        "xabikos.javascriptsnippets"
-    ]
+    "recommendations": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode", "johnpapa.vscode-peacock"]
 }

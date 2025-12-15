@@ -221,12 +221,12 @@ Run `pnpm test` (alias for `pnpm run lint`) to verify everything works.
 1. Update version in `package.json`
 2. Commit changes
 3. Create and push a version tag: `git tag v2.0.x && git push origin v2.0.x`
-4. GitHub Actions workflow (`.github/workflows/publish.yml`) automatically:
-    - Creates a GitHub release
+4. GitHub Actions workflow (`.github/workflows/publish.yaml`) automatically:
     - Runs `pnpm install --frozen-lockfile` to install dependencies
-    - Runs `pnpm run lint:fix` to ensure code quality
+    - Runs `pnpm run lint` to ensure code quality
     - Verifies package contents with `pnpm pack --dry-run`
     - Publishes to npm with public access
+    - Creates a GitHub release (with auto-generated release notes)
 
 Alternatively, use `pnpm run publish:github` for manual publishing (requires npm authentication).
 

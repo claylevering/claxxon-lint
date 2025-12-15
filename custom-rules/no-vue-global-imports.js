@@ -19,17 +19,16 @@ export default {
     },
 
     create(context) {
-        // List of Vue/Vite globals that should NOT be imported
-        const vueGlobals = new Set([
+        // List of Vue compiler macros that should NOT be imported (auto-available in <script setup>)
+        // Note: defineAsyncComponent and defineComponent are runtime functions, NOT compiler macros
+        const vueCompilerMacros = new Set([
             'defineProps',
             'defineEmits',
             'defineExpose',
             'defineOptions',
             'defineSlots',
             'defineModel',
-            'withDefaults',
-            'defineAsyncComponent',
-            'defineComponent'
+            'withDefaults'
         ]);
 
         // Sources that commonly provide these globals
@@ -61,7 +60,7 @@ export default {
                         return;
                     }
 
-                    if (vueGlobals.has(importName)) {
+                    if (vueCompilerMacros.has(importName)) {
                         context.report({
                             node: specifier,
                             messageId: 'noVueGlobalImports',

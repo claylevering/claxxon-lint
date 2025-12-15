@@ -187,28 +187,28 @@ export default defineConfig([
 ]);
 ```
 
-#### Nuxt (TS + Prettier)
+#### Nuxt + Prettier
 
 ```javascript
 import claxxonLint from '@claylevering/eslint-config';
 import withNuxt from './.nuxt/eslint.config.mjs';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
 
-const claxxonNuxtTsConfig = claxxonLint.configs['nuxt-ts'];
+const claxxonNuxtConfig = claxxonLint.configs['nuxt'];
 
 export default withNuxt({
     // Your custom config options / objects
 })
     .prepend([
         /**
-         * Prepend the custom Claxxon configurations.  This comes with all of the the `node`,
-         * `typescript` and `vue` configurations but WITHOUT the Vue plugin itself so Nuxt and
-         * eslint don't barf all over themselves
+         * Prepend the custom Claxxon configurations. This includes Node and Vue
+         * configurations but WITHOUT the Vue plugin itself so Nuxt/ESLint don't conflict.
+         * Supports both JavaScript and TypeScript Vue components.
          */
-        ...claxxonNuxtTsConfig
+        ...claxxonNuxtConfig
     ])
     .append([
-        // Again, making sure it goes last
+        // Prettier goes last to disable conflicting rules
         eslintConfigPrettier
     ]);
 ```
@@ -276,9 +276,9 @@ if (value === 1) {
 
 ### `no-vue-global-imports`
 
-Prevents importing Vue 3 compiler macros that are automatically available in `<script setup>`. This is a bit of an
-extension / insurance policy around the possibility that [`vue/no-import-compiler-macros`](https://eslint.vuejs.org/rules/no-import-compiler-macros)
-might not catch everything (for whatever reason)
+Prevents importing Vue 3 compiler macros (`defineProps`, `defineEmits`, `defineExpose`, `defineOptions`, `defineSlots`, `defineModel`, `withDefaults`) that are automatically available in `<script setup>`. This is a complementary rule to [`vue/no-import-compiler-macros`](https://eslint.vuejs.org/rules/no-import-compiler-macros).
+
+Note: `defineComponent` and `defineAsyncComponent` are **not** flagged as they are runtime functions that must be imported.
 
 **Invalid:**
 
@@ -289,9 +289,12 @@ import { defineProps, defineEmits } from 'vue'; // ❌ Error
 **Valid:**
 
 ```javascript
-// Just use them directly in <script setup>
+// Compiler macros: just use them directly in <script setup>
 const props = defineProps({...});
 const emit = defineEmits(['update']);
+
+// Runtime functions: these must be imported
+import { defineComponent, defineAsyncComponent } from 'vue'; // ✅ OK
 ```
 
 ### `pinia-store-pattern`

@@ -10,6 +10,7 @@ import claxxonNodeConfig from './node.js';
 import { claxxonTsConfig } from './typescript.js';
 import rootNodeRules from './rules/node.js';
 import rootVueRules from './rules/vue.js';
+import rootTypescriptRules from './rules/typescript.js';
 import claxxonCustom from '../custom-rules/index.js';
 
 const recommendedVueConfig = pluginVue.configs['flat/recommended'];
@@ -40,32 +41,23 @@ export const claxxonVueConfig = {
     },
 
     plugins: {
-        js,
         '@typescript-eslint': tsEslint.plugin,
         'claxxon-vue': claxxonCustom
     },
 
-    extends: [js.configs.recommended],
+    extends: [js.configs.all],
 
     rules: {
-        // Enable base ESLint rules for JS files
+        // Load the root node rules
         ...rootNodeRules,
 
-        '@typescript-eslint/no-unused-vars': [
-            'error',
-            {
-                varsIgnorePattern: '^_',
-                argsIgnorePattern: '^_',
-                caughtErrorsIgnorePattern: '^_',
-                destructuredArrayIgnorePattern: '^_',
-                ignoreRestSiblings: true
-            }
-        ],
-
-        // Load the standard Vue ruleset for this config
+        // Load the root vue rules
         ...rootVueRules,
 
-        // Enable custom Claxxon rules
+        // Load the root typescript rules
+        ...rootTypescriptRules,
+
+        // Load the custom claxxon rules
         ...Object.fromEntries(Object.keys(claxxonCustom.rules).map((ruleName) => [`claxxon-vue/${ruleName}`, 'error']))
     }
 };

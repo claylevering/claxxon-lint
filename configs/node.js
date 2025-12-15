@@ -23,7 +23,7 @@ const nodeConfig = defineConfig({
         }
     },
 
-    extends: [js.configs.recommended],
+    extends: [js.configs.all],
 
     rules: {
         ...nodeRules

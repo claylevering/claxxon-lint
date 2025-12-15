@@ -11,6 +11,7 @@ import js from '@eslint/js';
 import tsEslint from 'typescript-eslint';
 
 import rootNodeRules from './rules/node.js';
+import rootTypescriptRules from './rules/typescript.js';
 
 /**
  * Exported TypeScript configuration array for use by other configs (e.g., vue.js)
@@ -40,11 +41,7 @@ export const claxxonTsConfig = [
             }
         },
 
-        plugins: {
-            js
-        },
-
-        extends: [js.configs.recommended],
+        extends: [js.configs.all],
 
         rules: {
             ...rootNodeRules
@@ -67,18 +64,8 @@ export const claxxonTsConfig = [
         },
 
         rules: {
-            // Customized TypeScript rules from Claxxon
-            '@typescript-eslint/no-explicit-any': 'off',
-            '@typescript-eslint/no-unused-vars': [
-                'error',
-                {
-                    varsIgnorePattern: '^_',
-                    argsIgnorePattern: '^_',
-                    caughtErrorsIgnorePattern: '^_',
-                    destructuredArrayIgnorePattern: '^_',
-                    ignoreRestSiblings: true
-                }
-            ]
+            // Load the root typescript rules
+            ...rootTypescriptRules
         }
     }
 ];

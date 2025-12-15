@@ -15,6 +15,7 @@ import js from '@eslint/js';
 import tsEslint from 'typescript-eslint';
 
 import claxxonNodeConfig from './node.js';
+import rootTypescriptRules from './rules/typescript.js';
 import rootNodeRules from './rules/node.js';
 import rootVueRules from './rules/vue.js';
 import claxxonCustom from '../custom-rules/index.js';
@@ -62,21 +63,24 @@ export default defineConfig([
         },
 
         plugins: {
-            js,
+            '@typescript-eslint': tsEslint.plugin,
             'claxxon-vue': claxxonCustom
         },
 
-        extends: [js.configs.recommended],
+        extends: [js.configs.all],
 
         rules: {
             // Enable base ESLint rules for JS files
             ...rootNodeRules,
 
-            // Load dem rules, boi
+            // Load Vue plugin recommended rules (extracted without plugin registration)
             ...vueRules,
 
             // Load the standard Vue ruleset for this config
             ...rootVueRules,
+
+            // Load the root typescript rules
+            ...rootTypescriptRules,
 
             // Enable custom Claxxon rules
             ...Object.fromEntries(Object.keys(claxxonCustom.rules).map((ruleName) => [`claxxon-vue/${ruleName}`, 'error']))

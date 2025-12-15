@@ -131,8 +131,7 @@ export default {
             // Track when we enter different scopes
             Program(_node) {
                 // Check if this is a Vue script setup by looking at the file extension
-                const filename = context.getFilename();
-                isInScriptSetup = filename.endsWith('.vue');
+                isInScriptSetup = context.filename.endsWith('.vue');
             },
 
             // Track function scopes - ENTER
