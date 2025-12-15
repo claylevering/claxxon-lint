@@ -51,11 +51,11 @@ export const claxxonVueConfig = {
         // Load the root node rules
         ...rootNodeRules,
 
-        // Load the root vue rules
-        ...rootVueRules,
-
         // Load the root typescript rules
         ...rootTypescriptRules,
+
+        // Load the root vue rules
+        ...rootVueRules,
 
         // Load the custom claxxon rules
         ...Object.fromEntries(Object.keys(claxxonCustom.rules).map((ruleName) => [`claxxon-vue/${ruleName}`, 'error']))

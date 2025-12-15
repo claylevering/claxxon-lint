@@ -3,6 +3,8 @@ export default {
     'comma-dangle': 'off',
     curly: ['error', 'all'],
     indent: ['error', 4, { SwitchCase: 1 }],
+    'max-lines': 'off',
+    'max-lines-per-function': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-inline-comments': 'off',

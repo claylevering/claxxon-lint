@@ -208,13 +208,33 @@ rules: {
 
 ## Testing
 
-This repository uses its own linting as the primary test. The self-hosted `eslint.config.js`:
+The repository has two types of tests:
+
+### Linting (Self-Hosted)
+
+The self-hosted `eslint.config.js` uses its own rules for validation:
 
 - Uses the `vue` config (which supports hybrid JS/TS Vue components)
 - Adds `eslint-config-prettier` to disable conflicting Prettier rules
-- Ignores `custom-rules/**/*` to avoid linting custom rule implementations (which may violate standard rules intentionally)
+- Ignores `custom-rules/**/*` to avoid linting custom rule implementations
+- Relaxes `max-statements` and `max-lines-per-function` for test files
 
-Run `pnpm test` (alias for `pnpm run lint`) to verify everything works.
+### Unit Tests (Vitest + RuleTester)
+
+Custom rules have comprehensive unit tests in the `tests/` directory using ESLint's RuleTester:
+
+- `tests/no-switch-statements.test.js` - Tests for switch statement detection
+- `tests/no-vue-global-imports.test.js` - Tests for Vue compiler macro import detection
+- `tests/pinia-store-pattern.test.js` - Tests for store chaining detection (Vue files only)
+- `tests/pinia-store-top-level.test.js` - Tests for store scope detection (loops, conditionals, nested functions)
+
+### Test Commands
+
+```bash
+pnpm test           # Run lint + unit tests
+pnpm test:unit      # Run unit tests only (vitest run)
+pnpm test:watch     # Run unit tests in watch mode (vitest)
+```
 
 ## Publishing Workflow
 

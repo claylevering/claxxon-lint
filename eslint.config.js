@@ -12,6 +12,15 @@ const claxxonVueConfig = claxxonLint.configs.vue;
 const config = defineConfig([
     ...claxxonVueConfig,
 
+    // Relax rules for test files
+    {
+        files: ['tests/**/*.js'],
+        rules: {
+            'max-statements': 'off',
+            'max-lines-per-function': 'off'
+        }
+    },
+
     eslintConfigPrettier, // Prettier goes last to disable conflicting rules
 
     globalIgnores(['custom-rules/**/*', 'tmp/**'])

@@ -73,14 +73,14 @@ export default defineConfig([
             // Enable base ESLint rules for JS files
             ...rootNodeRules,
 
+            // Load the root typescript rules
+            ...rootTypescriptRules,
+
             // Load Vue plugin recommended rules (extracted without plugin registration)
             ...vueRules,
 
             // Load the standard Vue ruleset for this config
             ...rootVueRules,
-
-            // Load the root typescript rules
-            ...rootTypescriptRules,
 
             // Enable custom Claxxon rules
             ...Object.fromEntries(Object.keys(claxxonCustom.rules).map((ruleName) => [`claxxon-vue/${ruleName}`, 'error']))
