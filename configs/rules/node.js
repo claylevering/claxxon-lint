@@ -1,5 +1,6 @@
 export default {
     // Customized Node / JS rules from Claxxon
+    'capitalized-comments': 'off',
     'comma-dangle': 'off',
     complexity: 'off',
     curly: ['error', 'all'],
