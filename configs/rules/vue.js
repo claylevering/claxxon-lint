@@ -4,10 +4,10 @@ export default {
 
     // Customized Vue rules from Claxxon - assuming the Vue plugin is already loaded
     'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
-    'vue/component-api-style': ['error', ['script-setup']],
+    'vue/component-api-style': ['error', ['script-setup', 'composition']],
     'vue/component-definition-name-casing': ['error', 'PascalCase'],
     'vue/component-name-in-template-casing': ['error', 'PascalCase', { registeredComponentsOnly: false }],
-    'vue/custom-event-name-casing': ['error', 'camelCase'],
+    'vue/custom-event-name-casing': 'off',
     'vue/html-indent': ['error', 4],
     'vue/no-undef-components': 'error',
     'vue/no-undef-properties': 'error',
